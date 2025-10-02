@@ -1,0 +1,20 @@
+@startuml C3_C4
+class C3 {
+    # protectedBaseField : int
+    + publicBaseProperty : string {getter,setter}
+    + C3() <<constructor>>
+    # ProtectedBaseMethod() : void
+    + PublicBaseMethod() : void
+}
+
+class C4 {
+    - privateDerivedField : int
+    + publicDerivedProperty : string {getter,setter}
+    + C4() <<constructor>>
+    - PrivateDerivedMethod() : void
+    + PublicDerivedMethod() : void
+    + CallBaseProtectedMethod() : void
+}
+
+C4 ..|> C3
+@enduml

@@ -1,0 +1,15 @@
+@startuml C2
+class C2 {
+    + InterfaceProperty : string {getter,setter}
+    + InterfaceMethod(message:string) : void
+    + InterfaceEvent : EventHandler
+    + [index:int] : string {getter,setter}
+    + CallInterfaceEvent() : void
+    + C2() <<constructor>>
+    + C2(pf:int, pubf:int, protf:int, privProp:string, pubProp:string, protProp:string, interfaceProp:string) <<constructor>>
+    + C2(other:C2) <<constructor>>
+}
+
+C2 ..|> C1
+C2 ..|> I1
+@enduml

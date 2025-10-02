@@ -23,7 +23,6 @@ export const listeners = new Set();
 
 export function subscribeAuth(fn) {
     listeners.add(fn);
-    return () => listeners.delete(fn);
 }
 
 function notifyAuth() {

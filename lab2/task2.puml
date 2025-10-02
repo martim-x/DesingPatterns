@@ -1,0 +1,8 @@
+@startuml I1
+interface I1 {
+    + InterfaceProperty : string {getter,setter} <<property>>
+    + InterfaceMethod(message:string) : void <<method>>
+    + InterfaceEvent : EventHandler <<event>>
+    + [index:int] : string {getter,setter} <<indexer>>
+}
+@enduml

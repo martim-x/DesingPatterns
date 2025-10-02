@@ -1,28 +1,48 @@
-<meta charset="UTF-8" />
-<h1>Module/ Celebrities</h1>
-<div class="row">
-    <span class="col-4"></span>
-    <div class="col-5 d-flex justify-content-end">
-        <div id="STATE_N" style="margin-right: 2%; display: none">
-            <button id="NSignIn" type="button">Sign In</button>
-            <button id="NRegistration" type="button">Registration</button>
-        </div>
-        <div id="STATE_A" style="margin-right: 2%; display: none">
-            <input type="text" id="AName" readonly />
-            <button id="ASignOut" type="button">Sign Out</button>
-        </div>
-        <div id="STATE_R" style="margin-right: 2%; display: none">
-            <input id="RName" name="RName" type="text" placeholder="Login" />
-            <input id="RPass" name="RPass" type="password" placeholder="Password" />
-            <button id="RRegistration" type="button">Registration</button>
-            <button id="RCancel" type="button">Cancel</button>
-        </div>
-        <div id="STATE_S" style="margin-right: 2%; display: none">
-            <input id="SName" name="SName" type="text" placeholder="Login" />
-            <input id="SPass" name="SPass" type="password" placeholder="Password" />
-            <button id="SSignIn" type="button">Sign In</button>
-            <button id="SCancel" type="button">Cancel</button>
-        </div>
+<head>
+    <style>
+        * {
+            font-size: 18px !important;
+        }
+        h2 {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        button {
+            padding: 5px;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+    <meta charset="UTF-8" />
+</head>
+
+<div class="container">
+    <div id="STATE_N" style="margin-right: 2%; flex-direction: column; width: 200px; gap: 7px; display: none">
+        <h2>Авторизация</h2>
+        <button id="NSignIn" type="button">Sign In</button>
+        <button id="NRegistration" type="button">Registration</button>
+    </div>
+    <div id="STATE_A" style="margin-right: 2%; flex-direction: column; width: 200px; gap: 7px; display: none">
+        <h2>Ваш профиль</h2>
+        <input type="text" id="AName" readonly />
+        <button id="ASignOut" type="button">Sign Out</button>
+    </div>
+    <div id="STATE_R" style="margin-right: 2%; flex-direction: column; width: 200px; gap: 7px; display: none">
+        <h2>Регистрация</h2>
+        <input id="RName" name="RName" type="text" placeholder="Login" />
+        <input id="RPass" name="RPass" type="password" placeholder="Password" />
+        <button id="RRegistration" type="button">Registration</button>
+        <button id="RCancel" type="button">Cancel</button>
+    </div>
+    <div id="STATE_S" style="margin-right: 2%; flex-direction: column; width: 200px; gap: 7px; display: none">
+        <h2>Вход</h2>
+        <input id="SName" name="SName" type="text" placeholder="Login" />
+        <input id="SPass" name="SPass" type="password" placeholder="Password" />
+        <button id="SSignIn" type="button">Sign In</button>
+        <button id="SCancel" type="button">Cancel</button>
     </div>
 </div>
 
@@ -39,19 +59,19 @@
         if (state == SA.STATES.A) {
             AName.value = name || "";
             STATE_N.style.display = STATE_R.style.display = STATE_S.style.display = "none";
-            STATE_A.style.display = "block";
+            STATE_A.style.display = "flex";
         } else if (state == SA.STATES.N) {
             STATE_A.style.display = STATE_R.style.display = STATE_S.style.display = "none";
-            STATE_N.style.display = "block";
+            STATE_N.style.display = "flex";
         } else if (state == SA.STATES.R) {
             RName.value = RPass.value = "";
             STATE_A.style.display = STATE_N.style.display = STATE_S.style.display = "none";
-            STATE_R.style.display = "block";
+            STATE_R.style.display = "flex";
         } else if (state == SA.STATES.S) {
             SPass.value = "";
             SName.value = name || "";
             STATE_A.style.display = STATE_N.style.display = STATE_R.style.display = "none";
-            STATE_S.style.display = "block";
+            STATE_S.style.display = "flex";
         }
     };
 
@@ -65,9 +85,9 @@
             if (!exists) {
                 await Registration(
                     currentUser.name,
-                    currentUser.pass || "1234",
+                    currentUser.pass,
                     async () => {
-                        await SignIn(currentUser.name, currentUser.pass || "1234");
+                        await SignIn(currentUser.name, currentUser.pass);
                         setCurrentUser({ name: currentUser.name });
                         sa.state = SA.STATES.A;
                         Visio(sa.state, currentUser.name);
@@ -75,7 +95,7 @@
                     () => console.log("Регистрация отклонена во второй вкладке")
                 );
             } else {
-                await SignIn(currentUser.name, currentUser.pass || "1234");
+                await SignIn(currentUser.name, currentUser.pass);
                 setCurrentUser({ name: currentUser.name });
                 sa.state = SA.STATES.A;
                 Visio(sa.state, currentUser.name);
