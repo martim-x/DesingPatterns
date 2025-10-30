@@ -8,10 +8,10 @@ class C3 {
 }
 
 class C4 {
-    - privateDerivedField : int
+    - __privateDerivedField : int
     + publicDerivedProperty : string {getter,setter}
     + C4() <<constructor>>
-    - PrivateDerivedMethod() : void
+    - __PrivateDerivedMethod() : void
     + PublicDerivedMethod() : void
     + CallBaseProtectedMethod() : void
 }

@@ -1,3 +1,5 @@
+using namespace System.Console;
+
 // -------TASK1-------
 public class C1
 {
@@ -13,7 +15,7 @@ public class C1
     public string PublicProperty { get; set; }
     protected string ProtectedProperty { get; set; }
 
-    public C1()
+    public C1() //internal
     {
         __privateField = 100;
         publicField = 200;
@@ -24,7 +26,7 @@ public class C1
         ProtectedProperty = "ProtectedDefault";
     }
 
-    public C1(int __pf, int pubf, int protf, string __privProp, string pubProp, string protProp)
+    public C1(int __pf, int pubf, int protf, string __privProp, string pubProp, string protProp) // this: base:
     {
         __privateField = __pf;
         publicField = pubf;
@@ -35,7 +37,7 @@ public class C1
         ProtectedProperty = protProp;
     }
 
-    public C1(C1 other)
+    public C1(C1 other) //not recommended to use
     {
         __privateField = other.__privateField;
         publicField = other.publicField;
@@ -74,6 +76,7 @@ public interface I1
 }
 
 // -------TASK3-------
+
 public class C2 : C1, I1
 {
     public string InterfaceProperty { get; set; }
@@ -124,6 +127,8 @@ public class C2 : C1, I1
         InterfaceEvent?.Invoke(this, EventArgs.Empty);
     }
 }
+
+
 
 // -------TASK4-------
 public class C3
@@ -218,7 +223,7 @@ Console.WriteLine("C3 publicBaseProperty = " + c3obj.publicBaseProperty);
 c3obj.PublicBaseMethod();
 
 C4 c4obj = new C4();
-Console.WriteLine("C4 publicDerivedProperty = " + c4obj.publicDerivedProperty);
+WriteLine("C4 publicDerivedProperty = " + c4obj.publicDerivedProperty);
 c4obj.PublicDerivedMethod();
 c4obj.PublicBaseMethod();
 c4obj.CallBaseProtectedMethod();

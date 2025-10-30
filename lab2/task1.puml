@@ -1,14 +1,14 @@
 @startuml
 class C1 {
-    - PrivateConst : string {constant}
+    - __PrivateConst : string {constant}
     + PublicConst : string {constant}
     # ProtectedConst : string {constant}
 
-    - privateField : int
+    - __privateField : int
     + publicField : int
     # protectedField : int
 
-    - PrivateProperty : string {getter/setter}
+    - __PrivateProperty : string {getter/setter}
     + PublicProperty : string {getter/setter}
     # ProtectedProperty : string {getter/setter}
 
@@ -16,7 +16,7 @@ class C1 {
     + C1(pf:int, pubf:int, protf:int, privProp:string, pubProp:string, protProp:string) {constructor}
     + C1(other:C1) {constructor}
 
-    - PrivateMethod() : void
+    - __PrivateMethod() : void
     + PublicMethod() : void
     # ProtectedMethod() : void
 }

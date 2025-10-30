@@ -10,6 +10,34 @@ class C2 {
     + C2(other:C2) <<constructor>>
 }
 
+class C1 {
+    - __PrivateConst : string {constant}
+    + PublicConst : string {constant}
+    # ProtectedConst : string {constant}
+
+    - __privateField : int
+    + publicField : int
+    # protectedField : int
+
+    - __PrivateProperty : string {getter/setter}
+    + PublicProperty : string {getter/setter}
+    # ProtectedProperty : string {getter/setter}
+
+    + C1() {constructor}
+    + C1(pf:int, pubf:int, protf:int, privProp:string, pubProp:string, protProp:string) {constructor}
+    + C1(other:C1) {constructor}
+
+    - __PrivateMethod() : void
+    + PublicMethod() : void
+    # ProtectedMethod() : void
+}
+
+interface I1 {
+    + InterfaceProperty : string {getter,setter} <<property>>
+    + InterfaceMethod(message:string) : void <<method>>
+    + InterfaceEvent : EventHandler <<event>>
+    + [index:int] : string {getter,setter} <<indexer>>
+}
 C2 ..|> C1
 C2 ..|> I1
 @enduml
