@@ -185,7 +185,10 @@ public class Organization : IStaff
 
     public void SetAddress(string a) => Address = a;
 
-    public virtual void PrintInfo() =>
+    // public virtual void PrintInfo() =>
+    //     Console.WriteLine($"[{Id}] {Name} ({ShortName}) — {Address}, {TimeStamp}");
+
+    public void PrintInfo() =>
         Console.WriteLine($"[{Id}] {Name} ({ShortName}) — {Address}, {TimeStamp}");
 
     public List<JobVacancy> GetJobVacancies() => JobVacancies;
@@ -287,7 +290,15 @@ public class Faculty : Organization
 
     public List<Department> GetDepartments() => Departments;
 
-    public override void PrintInfo()
+    // public override void PrintInfo()
+    // {
+    //     base.PrintInfo();
+    //     Console.WriteLine($"Departments: {Departments.Count}");
+    //     foreach (var d in Departments)
+    //         d.PrintInfo();
+    // }
+
+    public new void PrintInfo()
     {
         base.PrintInfo();
         Console.WriteLine($"Departments: {Departments.Count}");
@@ -321,7 +332,14 @@ public class University : Organization
 
     public List<Faculty> GetFaculties() => Faculties;
 
-    public override void PrintInfo()
+    // public override void PrintInfo()
+    // {
+    //     base.PrintInfo();
+    //     Console.WriteLine($"Faculties: {Faculties.Count}");
+    //     foreach (var f in Faculties)
+    //         f.PrintInfo();
+    // }
+    new public void PrintInfo()
     {
         base.PrintInfo();
         Console.WriteLine($"Faculties: {Faculties.Count}");
@@ -334,33 +352,95 @@ public class Program
 {
     public static void Main()
     {
+        Console.WriteLine("=== ДЕМОНСТРАЦИЯ РАБОТЫ СИСТЕМЫ ===\n");
+
+        // 1. Создаем людей
+        Console.WriteLine("1. СОЗДАЕМ ЛЮДЕЙ:");
         Person alice = new Person("Alice", 25);
         Person bob = new Person("Bob", 30);
+        alice.PrintInfo();
+        bob.PrintInfo();
+        Console.WriteLine();
 
+        // 2. Создаем отделы
+        Console.WriteLine("2. СОЗДАЕМ ОТДЕЛЫ:");
         Department d1 = new Department("Mathematics");
         Department d2 = new Department("Physics");
+        d1.PrintInfo();
+        d2.PrintInfo();
+        Console.WriteLine();
 
+        // 3. Создаем факультет и добавляем отделы
+        Console.WriteLine("3. СОЗДАЕМ ФАКУЛЬТЕТ:");
         Faculty f1 = new Faculty("Science");
         f1.AddDepartment(d1);
         f1.AddDepartment(d2);
+        f1.PrintInfo();
+        Console.WriteLine();
 
+        // 4. Создаем вакансии
+        Console.WriteLine("4. СОЗДАЕМ ВАКАНСИИ:");
         JobVacancy jv1 = new JobVacancy("Professor", 5000, "PhD Required");
         JobVacancy jv2 = new JobVacancy("Lecturer", 3000, "Master Degree");
+        jv1.PrintInfo();
+        jv2.PrintInfo();
+        Console.WriteLine();
 
+        // 5. Создаем университет
+        Console.WriteLine("5. СОЗДАЕМ УНИВЕРСИТЕТ:");
         University uni = new University("Tech University");
         uni.AddFaculty(f1);
         uni.AddJobVacancy(jv1);
         uni.AddJobVacancy(jv2);
+        uni.PrintInfo();
+        Console.WriteLine();
 
+        // 6. Нанимаем сотрудников
+        Console.WriteLine("6. НАНИМАЕМ СОТРУДНИКОВ:");
+        Console.WriteLine("Нанимаем Alice на должность Professor...");
         uni.Recruit(jv1.Id, alice);
+        Console.WriteLine("Нанимаем Bob на должность Lecturer...");
         uni.Recruit(jv2.Id, bob);
 
+        Console.WriteLine("\nСостояние после найма:");
         uni.PrintInfo();
+        Console.WriteLine();
 
+        // 7. Показываем всех сотрудников
+        Console.WriteLine("7. ВСЕ СОТРУДНИКИ УНИВЕРСИТЕТА:");
+        var employees = uni.GetEmployees();
+        foreach (var emp in employees)
+        {
+            emp.PrintInfo();
+        }
+        Console.WriteLine();
+
+        // 8. Показываем все вакансии
+        Console.WriteLine("8. ВСЕ ВАКАНСИИ:");
+        Console.WriteLine(uni.PrintJobVacancies());
+
+        // 9. Удаляем отдел и вакансию
+        Console.WriteLine("9. УДАЛЯЕМ ОТДЕЛ И ВАКАНСИЮ:");
+        Console.WriteLine("Удаляем отдел Mathematics...");
         f1.DelDepartment(d1.Id);
+        Console.WriteLine("Удаляем вакансию Lecturer...");
         uni.DelJobVacancy(jv2.Id);
 
-        Console.WriteLine("\nПосле удаления:");
+        Console.WriteLine("\n10. РЕЗУЛЬТАТ ПОСЛЕ УДАЛЕНИЯ:");
         uni.PrintInfo();
+
+        // 11. Финальная информация
+        Console.WriteLine("\n11. ФИНАЛЬНАЯ СТАТИСТИКА:");
+        Console.WriteLine($"Всего факультетов: {uni.GetFaculties().Count}");
+        Console.WriteLine($"Всего вакансий: {uni.GetJobVacancies().Count}");
+        Console.WriteLine($"Всего сотрудников: {uni.GetEmployees().Count}");
+
+        var faculties = uni.GetFaculties();
+        foreach (var faculty in faculties)
+        {
+            Console.WriteLine(
+                $"Факультет '{faculty.Name}': {faculty.GetDepartments().Count} отделов"
+            );
+        }
     }
 }
