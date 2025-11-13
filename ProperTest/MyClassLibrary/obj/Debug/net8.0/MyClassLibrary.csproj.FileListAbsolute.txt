@@ -1,0 +1,12 @@
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/ProperTest/MyClassLibrary/bin/Debug/net8.0/MyClassLibrary.deps.json
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/ProperTest/MyClassLibrary/bin/Debug/net8.0/MyClassLibrary.dll
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/ProperTest/MyClassLibrary/bin/Debug/net8.0/MyClassLibrary.pdb
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/ProperTest/MyClassLibrary/obj/Debug/net8.0/MyClassLibrary.GeneratedMSBuildEditorConfig.editorconfig
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/ProperTest/MyClassLibrary/obj/Debug/net8.0/MyClassLibrary.AssemblyInfoInputs.cache
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/ProperTest/MyClassLibrary/obj/Debug/net8.0/MyClassLibrary.AssemblyInfo.cs
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/ProperTest/MyClassLibrary/obj/Debug/net8.0/MyClassLibrary.csproj.CoreCompileInputs.cache
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/ProperTest/MyClassLibrary/obj/Debug/net8.0/MyClassLibrary.sourcelink.json
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/ProperTest/MyClassLibrary/obj/Debug/net8.0/MyClassLibrary.dll
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/ProperTest/MyClassLibrary/obj/Debug/net8.0/refint/MyClassLibrary.dll
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/ProperTest/MyClassLibrary/obj/Debug/net8.0/MyClassLibrary.pdb
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/ProperTest/MyClassLibrary/obj/Debug/net8.0/ref/MyClassLibrary.dll

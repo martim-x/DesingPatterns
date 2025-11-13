@@ -1,15 +1,30 @@
-C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\lab3\Task2\bin\Debug\net8.0\Task2.exe
-C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\lab3\Task2\bin\Debug\net8.0\Task2.deps.json
-C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\lab3\Task2\bin\Debug\net8.0\Task2.runtimeconfig.json
-C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\lab3\Task2\bin\Debug\net8.0\Task2.dll
-C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\lab3\Task2\bin\Debug\net8.0\Task2.pdb
-C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\lab3\Task2\obj\Debug\net8.0\Task2.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\lab3\Task2\obj\Debug\net8.0\Task2.AssemblyInfoInputs.cache
-C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\lab3\Task2\obj\Debug\net8.0\Task2.AssemblyInfo.cs
-C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\lab3\Task2\obj\Debug\net8.0\Task2.csproj.CoreCompileInputs.cache
-C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\lab3\Task2\obj\Debug\net8.0\Task2.sourcelink.json
-C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\lab3\Task2\obj\Debug\net8.0\Task2.dll
-C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\lab3\Task2\obj\Debug\net8.0\refint\Task2.dll
-C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\lab3\Task2\obj\Debug\net8.0\Task2.pdb
-C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\lab3\Task2\obj\Debug\net8.0\Task2.genruntimeconfig.cache
-C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\lab3\Task2\obj\Debug\net8.0\ref\Task2.dll
+C:/Users/timof/Documents/Visual Studio Code/DesingPatterns/lab3/Task2/bin/Debug/net8.0/Task2.exe
+C:/Users/timof/Documents/Visual Studio Code/DesingPatterns/lab3/Task2/bin/Debug/net8.0/Task2.deps.json
+C:/Users/timof/Documents/Visual Studio Code/DesingPatterns/lab3/Task2/bin/Debug/net8.0/Task2.runtimeconfig.json
+C:/Users/timof/Documents/Visual Studio Code/DesingPatterns/lab3/Task2/bin/Debug/net8.0/Task2.dll
+C:/Users/timof/Documents/Visual Studio Code/DesingPatterns/lab3/Task2/bin/Debug/net8.0/Task2.pdb
+C:/Users/timof/Documents/Visual Studio Code/DesingPatterns/lab3/Task2/obj/Debug/net8.0/Task2.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/timof/Documents/Visual Studio Code/DesingPatterns/lab3/Task2/obj/Debug/net8.0/Task2.AssemblyInfoInputs.cache
+C:/Users/timof/Documents/Visual Studio Code/DesingPatterns/lab3/Task2/obj/Debug/net8.0/Task2.AssemblyInfo.cs
+C:/Users/timof/Documents/Visual Studio Code/DesingPatterns/lab3/Task2/obj/Debug/net8.0/Task2.csproj.CoreCompileInputs.cache
+C:/Users/timof/Documents/Visual Studio Code/DesingPatterns/lab3/Task2/obj/Debug/net8.0/Task2.sourcelink.json
+C:/Users/timof/Documents/Visual Studio Code/DesingPatterns/lab3/Task2/obj/Debug/net8.0/Task2.dll
+C:/Users/timof/Documents/Visual Studio Code/DesingPatterns/lab3/Task2/obj/Debug/net8.0/refint/Task2.dll
+C:/Users/timof/Documents/Visual Studio Code/DesingPatterns/lab3/Task2/obj/Debug/net8.0/Task2.pdb
+C:/Users/timof/Documents/Visual Studio Code/DesingPatterns/lab3/Task2/obj/Debug/net8.0/Task2.genruntimeconfig.cache
+C:/Users/timof/Documents/Visual Studio Code/DesingPatterns/lab3/Task2/obj/Debug/net8.0/ref/Task2.dll
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/lab3/Task2/bin/Debug/net8.0/Task2
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/lab3/Task2/bin/Debug/net8.0/Task2.deps.json
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/lab3/Task2/bin/Debug/net8.0/Task2.runtimeconfig.json
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/lab3/Task2/bin/Debug/net8.0/Task2.dll
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/lab3/Task2/bin/Debug/net8.0/Task2.pdb
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/lab3/Task2/obj/Debug/net8.0/Task2.GeneratedMSBuildEditorConfig.editorconfig
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/lab3/Task2/obj/Debug/net8.0/Task2.AssemblyInfoInputs.cache
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/lab3/Task2/obj/Debug/net8.0/Task2.AssemblyInfo.cs
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/lab3/Task2/obj/Debug/net8.0/Task2.csproj.CoreCompileInputs.cache
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/lab3/Task2/obj/Debug/net8.0/Task2.sourcelink.json
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/lab3/Task2/obj/Debug/net8.0/Task2.dll
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/lab3/Task2/obj/Debug/net8.0/refint/Task2.dll
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/lab3/Task2/obj/Debug/net8.0/Task2.pdb
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/lab3/Task2/obj/Debug/net8.0/Task2.genruntimeconfig.cache
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/lab3/Task2/obj/Debug/net8.0/ref/Task2.dll

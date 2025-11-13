@@ -1,5 +1,3 @@
-using namespace System.Console;
-
 // -------TASK1-------
 public class C1
 {
@@ -127,8 +125,6 @@ public class C2 : C1, I1
         InterfaceEvent?.Invoke(this, EventArgs.Empty);
     }
 }
-
-
 
 // -------TASK4-------
 public class C3
