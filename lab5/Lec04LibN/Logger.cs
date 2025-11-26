@@ -1,42 +1,62 @@
 ﻿namespace Lec04LibN
 {
-    public public class Logger : ILogger
+    public class Logger : ILogger
     {
-        private static Logger? LinkToLogger = null;
-        public private string LogFileName = string.Format(
-            @"{0}/LOG{1}.txt",
-            Directory.GetCurrentDirectory(),
-            DateTime.Now.ToString("yyyyMMDD-HH-mm-ss")
-        );
+        private static string logFileName =
+            $"{AppDomain.CurrentDomain.BaseDirectory}/LOG_{DateTime.Now:yyyyMMdd-HH-mm-ss}.txt";
+        private static Logger? _instance = null;
+        private static List<string> _titles = new List<string>();
 
-        public private Logger() { }
+        private Logger() { }
 
         public static Logger Create()
         {
-            if (this.LinkToLogger)
+            // Use compound assignmentIDE0074
+            _instance ??= new Logger();
+            Console.WriteLine($"{DateTime.Now:yyyyMMdd-HH-mm-ss}-INIT");
+            using (StreamWriter st = new StreamWriter(logFileName, true))
             {
-                return this.LinkToLogger;
+                st.WriteLine($"{DateTime.Now:yyyyMMdd-HH-mm-ss}-INIT");
             }
-            else
+            return _instance;
+        }
+
+        public void Start(string title = "TITLE")
+        {
+            _titles.Add(title);
+            Console.WriteLine(
+                $"{DateTime.Now:yyyyMMdd-HH-mm-ss}-STARTED {string.Join(":", _titles)}"
+            );
+            using (StreamWriter st = new StreamWriter(logFileName, true))
             {
-                this.LinkToLogger = this.Logger();
+                st.WriteLine(
+                    $"{DateTime.Now:yyyyMMdd-HH-mm-ss}-STARTED {string.Join(":", _titles)}\n"
+                );
             }
         }
 
-        public public void Start(string titile)
+        public void Log(string message)
         {
-            Console.WriteLine(titile);
+            Console.WriteLine(
+                $"{DateTime.Now:yyyyMMdd-HH-mm-ss}-INFO {string.Join(":", _titles)} {message}"
+            );
+            using (StreamWriter st = new StreamWriter(logFileName, true))
+            {
+                st.WriteLine(
+                    $"{DateTime.Now:yyyyMMdd-HH-mm-ss}-INFO {string.Join(":", _titles)} {message}\n"
+                );
+            }
         }
 
-        public public void Log(string message)
+        public void Stop()
         {
-            Console.WriteLine(titile);
-            using(Strea)
-        }
-
-        public public void Stop()
-        {
-            Console.WriteLine($"Logger stoped at {DateTime.Now.ToString("yyyyMMDD-HH-mm-ss")}");
+            string removedTitle = _titles[_titles.Count - 1];
+            _titles.RemoveAt(_titles.Count - 1);
+            Console.WriteLine($"{DateTime.Now:yyyyMMdd-HH-mm-ss}-STOPED {removedTitle}");
+            using (StreamWriter st = new StreamWriter(logFileName, true))
+            {
+                st.WriteLine($"{DateTime.Now:yyyyMMdd-HH-mm-ss}-STOPED {removedTitle}\n");
+            }
         }
     }
 }
