@@ -2,19 +2,22 @@
 {
     public class Logger : ILogger
     {
-        private static string logFileName =
-            $"{AppDomain.CurrentDomain.BaseDirectory}/LOG_{DateTime.Now:yyyyMMdd-HH-mm-ss}.txt";
+        private string _logFileName;
         private static Logger? _instance = null;
-        private static List<string> _titles = new List<string>();
+        private List<string> _titles = new List<string>();
 
-        private Logger() { }
+        private Logger()
+        {
+            this._logFileName =
+                $"{AppDomain.CurrentDomain.BaseDirectory}/LOG_{DateTime.Now:yyyyMMdd-HH-mm-ss}.txt";
+        }
 
         public static Logger Create()
         {
             // Use compound assignmentIDE0074
             _instance ??= new Logger();
             Console.WriteLine($"{DateTime.Now:yyyyMMdd-HH-mm-ss}-INIT");
-            using (StreamWriter st = new StreamWriter(logFileName, true))
+            using (StreamWriter st = new StreamWriter(this._logFileName, true))
             {
                 st.WriteLine($"{DateTime.Now:yyyyMMdd-HH-mm-ss}-INIT");
             }
@@ -23,14 +26,14 @@
 
         public void Start(string title = "TITLE")
         {
-            _titles.Add(title);
+            this._titles.Add(title);
             Console.WriteLine(
-                $"{DateTime.Now:yyyyMMdd-HH-mm-ss}-STARTED {string.Join(":", _titles)}"
+                $"{DateTime.Now:yyyyMMdd-HH-mm-ss}-STARTED {string.Join(":", this._titles)}"
             );
-            using (StreamWriter st = new StreamWriter(logFileName, true))
+            using (StreamWriter st = new StreamWriter(this._logFileName, true))
             {
                 st.WriteLine(
-                    $"{DateTime.Now:yyyyMMdd-HH-mm-ss}-STARTED {string.Join(":", _titles)}\n"
+                    $"{DateTime.Now:yyyyMMdd-HH-mm-ss}-STARTED {string.Join(":", this._titles)}\n"
                 );
             }
         }
@@ -38,22 +41,22 @@
         public void Log(string message)
         {
             Console.WriteLine(
-                $"{DateTime.Now:yyyyMMdd-HH-mm-ss}-INFO {string.Join(":", _titles)} {message}"
+                $"{DateTime.Now:yyyyMMdd-HH-mm-ss}-INFO {string.Join(":", this._titles)} {message}"
             );
-            using (StreamWriter st = new StreamWriter(logFileName, true))
+            using (StreamWriter st = new StreamWriter(this._logFileName, true))
             {
                 st.WriteLine(
-                    $"{DateTime.Now:yyyyMMdd-HH-mm-ss}-INFO {string.Join(":", _titles)} {message}\n"
+                    $"{DateTime.Now:yyyyMMdd-HH-mm-ss}-INFO {string.Join(":", this._titles)} {message}\n"
                 );
             }
         }
 
         public void Stop()
         {
-            string removedTitle = _titles[_titles.Count - 1];
-            _titles.RemoveAt(_titles.Count - 1);
+            string removedTitle = this._titles[this._titles.Count - 1];
+            this._titles.RemoveAt(this._titles.Count - 1);
             Console.WriteLine($"{DateTime.Now:yyyyMMdd-HH-mm-ss}-STOPED {removedTitle}");
-            using (StreamWriter st = new StreamWriter(logFileName, true))
+            using (StreamWriter st = new StreamWriter(this._logFileName, true))
             {
                 st.WriteLine($"{DateTime.Now:yyyyMMdd-HH-mm-ss}-STOPED {removedTitle}\n");
             }
