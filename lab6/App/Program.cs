@@ -27,9 +27,8 @@ namespace Lab5Test
 
         static void Test1()
         {
-            // IWriter writer = new StrWriter();
-            IWriter writer = new FileWriter("test1.txt");
-            IWriter rsa = new RSASignDecorator(writer);
+            IWriter writer = new StrWriter();
+            IWriter rsa = new RSASignDecorator(writer, HashAlgorithmName.SHA512);
             IWriter hash = new SHA512Decorator(rsa);
             string? result = hash.Save("AAAAABBBBCCCCC");
 
@@ -40,7 +39,7 @@ namespace Lab5Test
         static void Test2()
         {
             IWriter writer = new FileWriter("test2.txt");
-            IWriter rsa = new RSASignDecorator(writer);
+            IWriter rsa = new RSASignDecorator(writer, HashAlgorithmName.SHA512);
             IWriter hash = new SHA512Decorator(rsa);
             string? result = hash.Save("BBBBCCCCC");
 
@@ -56,7 +55,7 @@ namespace Lab5Test
         static void Test3()
         {
             IWriter writer = new StrWriter();
-            IWriter rsa = new RSASignDecorator(writer);
+            IWriter rsa = new RSASignDecorator(writer, HashAlgorithmName.MD5);
             IWriter hash = new MD5Decorator(rsa);
 
             string? result = hash.Save("AAAAACCCCBBBBB");
@@ -68,7 +67,7 @@ namespace Lab5Test
         static void Test4()
         {
             IWriter writer = new FileWriter("test4.txt");
-            IWriter rsa = new RSASignDecorator(writer);
+            IWriter rsa = new RSASignDecorator(writer, HashAlgorithmName.MD5);
             IWriter hash = new MD5Decorator(rsa);
 
             string? result = hash.Save("AAAAABBBBDDDDCCCCC");
@@ -108,7 +107,7 @@ namespace Lab5Test
         static void Test7()
         {
             IWriter writer = new FileWriter("test7.txt");
-            IWriter rsa = new RSASignDecorator(writer);
+            IWriter rsa = new RSASignDecorator(writer, HashAlgorithmName.SHA512);
             IWriter hash = new SHA512Decorator(rsa);
 
             string? result = hash.Save("AAAAABBBBDDDDCCCCC");
@@ -159,7 +158,7 @@ namespace Lab5Test
         static void Test11()
         {
             IWriter writer = new StrWriter();
-            IWriter rsa = new RSASignDecorator(writer);
+            IWriter rsa = new RSASignDecorator(writer, HashAlgorithmName.SHA512);
             IWriter hash = new MD5Decorator(rsa);
 
             string? result = hash.Save("HHHAAAAABBBBCCCCC");
@@ -171,7 +170,7 @@ namespace Lab5Test
         static void Test12()
         {
             IWriter writer = new FileWriter("test12.txt");
-            IWriter rsa = new RSASignDecorator(writer);
+            IWriter rsa = new RSASignDecorator(writer, HashAlgorithmName.SHA512);
             IWriter hash = new SHA512Decorator(rsa);
 
             string? result = hash.Save("BBBGCCCCC");
@@ -189,7 +188,7 @@ namespace Lab5Test
         static void Test13()
         {
             IWriter writer = new FileWriter("test13.txt");
-            IWriter rsa = new RSASignDecorator(writer);
+            IWriter rsa = new RSASignDecorator(writer, HashAlgorithmName.MD5);
             IWriter hash = new MD5Decorator(rsa);
             string result = hash.Save("BBBGCCCCC");
 
@@ -226,7 +225,7 @@ namespace Lab5Test
             return parts[1] == hash;
         }
 
-        static bool TestSHA512_SA(string result, char Token)
+        static bool TestSHA512_SA(string? result, char Token)
         {
             if (string.IsNullOrEmpty(result))
                 return false;
@@ -237,24 +236,19 @@ namespace Lab5Test
 
             string message = parts[0]; // исходное сообщение
             string signatureBase64 = parts[1]; // подпись
-            Console.WriteLine(signatureBase64);
             string publicKeyBase64 = parts[2]; // публичный ключ
 
             try
             {
-                // 1. Вычисляем SHA512 хеш сообщения
-                using var sha = SHA512.Create();
-                byte[] hashBytes = sha.ComputeHash(Encoding.UTF8.GetBytes(message));
+                byte[] hashBytes = SHA512.HashData(Encoding.UTF8.GetBytes(message));
 
-                // 2. Создаем RSA и импортируем публичный ключ
                 using var rsa = RSA.Create();
                 rsa.ImportRSAPublicKey(Convert.FromBase64String(publicKeyBase64), out _);
 
-                // 3. Проверяем подпись (на хеше)
                 return rsa.VerifyData(
                     hashBytes,
                     Convert.FromBase64String(signatureBase64),
-                    HashAlgorithmName.SHA256,
+                    HashAlgorithmName.SHA512,
                     RSASignaturePadding.Pkcs1
                 );
             }
@@ -264,7 +258,7 @@ namespace Lab5Test
             }
         }
 
-        static bool TestMD5_SA(string result, char Token)
+        static bool TestMD5_SA(string? result, char Token)
         {
             if (string.IsNullOrEmpty(result))
                 return false;
@@ -273,26 +267,21 @@ namespace Lab5Test
             if (parts.Length != 3)
                 return false; // message, signature, publicKey
 
-            string message = parts[0]; // исходное сообщение
-            string signatureBase64 = parts[1]; // подпись
-            Console.WriteLine(signatureBase64);
-            string publicKeyBase64 = parts[2]; // публичный ключ
+            string message = parts[0];
+            string signatureBase64 = parts[1];
+            string publicKeyBase64 = parts[2];
 
             try
             {
-                // 1. Вычисляем MD5 хеш сообщения
-                using var md5 = MD5.Create();
-                byte[] hashBytes = md5.ComputeHash(Encoding.UTF8.GetBytes(message));
+                byte[] hashBytes = MD5.HashData(Encoding.UTF8.GetBytes(message));
 
-                // 2. Создаем RSA и импортируем публичный ключ
                 using var rsa = RSA.Create();
                 rsa.ImportRSAPublicKey(Convert.FromBase64String(publicKeyBase64), out _);
 
-                // 3. Проверяем подпись (на хеше)
                 return rsa.VerifyData(
                     hashBytes,
                     Convert.FromBase64String(signatureBase64),
-                    HashAlgorithmName.SHA256,
+                    HashAlgorithmName.MD5,
                     RSASignaturePadding.Pkcs1
                 );
             }
