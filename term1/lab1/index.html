@@ -1,0 +1,198 @@
+<head>
+    <style>
+        * {
+            font-size: 18px !important;
+        }
+        h2 {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        button {
+            padding: 5px;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+    <meta charset="UTF-8" />
+</head>
+
+<div class="container">
+    <div id="STATE_N" style="margin-right: 2%; flex-direction: column; width: 200px; gap: 7px; display: none">
+        <h2>Авторизация</h2>
+        <button id="NSignIn" type="button">Sign In</button>
+        <button id="NRegistration" type="button">Registration</button>
+    </div>
+    <div id="STATE_A" style="margin-right: 2%; flex-direction: column; width: 200px; gap: 7px; display: none">
+        <h2>Ваш профиль</h2>
+        <input type="text" id="AName" readonly />
+        <button id="ASignOut" type="button">Sign Out</button>
+    </div>
+    <div id="STATE_R" style="margin-right: 2%; flex-direction: column; width: 200px; gap: 7px; display: none">
+        <h2>Регистрация</h2>
+        <input id="RName" name="RName" type="text" placeholder="Login" />
+        <input id="RPass" name="RPass" type="password" placeholder="Password" />
+        <button id="RRegistration" type="button">Registration</button>
+        <button id="RCancel" type="button">Cancel</button>
+    </div>
+    <div id="STATE_S" style="margin-right: 2%; flex-direction: column; width: 200px; gap: 7px; display: none">
+        <h2>Вход</h2>
+        <input id="SName" name="SName" type="text" placeholder="Login" />
+        <input id="SPass" name="SPass" type="password" placeholder="Password" />
+        <button id="SSignIn" type="button">Sign In</button>
+        <button id="SCancel" type="button">Cancel</button>
+    </div>
+</div>
+
+<script type="module">
+    import { SA, GetUserName, Registration, SignIn, SignOut, broadcastState, setCurrentUser, subscribeAuth } from "./script.js";
+    const ButtonDissabled = (flag) => {
+        NSignIn.disabled = NRegistration.disabled = flag;
+        RRegistration.disabled = SSignIn.disabled = flag;
+        ASignOut.disabled = flag;
+        RCancel.disabled = SCancel.disabled = flag;
+    };
+
+    let Visio = (state, name) => {
+        if (state == SA.STATES.A) {
+            AName.value = name || "";
+            STATE_N.style.display = STATE_R.style.display = STATE_S.style.display = "none";
+            STATE_A.style.display = "flex";
+        } else if (state == SA.STATES.N) {
+            STATE_A.style.display = STATE_R.style.display = STATE_S.style.display = "none";
+            STATE_N.style.display = "flex";
+        } else if (state == SA.STATES.R) {
+            RName.value = RPass.value = "";
+            STATE_A.style.display = STATE_N.style.display = STATE_S.style.display = "none";
+            STATE_R.style.display = "flex";
+        } else if (state == SA.STATES.S) {
+            SPass.value = "";
+            SName.value = name || "";
+            STATE_A.style.display = STATE_N.style.display = STATE_R.style.display = "none";
+            STATE_S.style.display = "flex";
+        }
+    };
+
+    let sa = new SA(SA.START.A);
+
+    subscribeAuth(async ({ currentUser, users }) => {
+        if (currentUser) {
+            console.log("Пользователь вошёл в другой вкладке:", currentUser.name);
+
+            const exists = users.some((u) => u.name === currentUser.name);
+            if (!exists) {
+                await Registration(
+                    currentUser.name,
+                    currentUser.pass,
+                    async () => {
+                        await SignIn(currentUser.name, currentUser.pass);
+                        setCurrentUser({ name: currentUser.name });
+                        sa.state = SA.STATES.A;
+                        Visio(sa.state, currentUser.name);
+                    },
+                    () => console.log("Регистрация отклонена во второй вкладке")
+                );
+            } else {
+                await SignIn(currentUser.name, currentUser.pass);
+                setCurrentUser({ name: currentUser.name });
+                sa.state = SA.STATES.A;
+                Visio(sa.state, currentUser.name);
+            }
+        } else {
+            console.log("Пользователь вышел в другой вкладке");
+            sa.state = SA.STATES.N;
+            Visio(sa.state);
+        }
+    });
+
+    GetUserName(
+        (obj) => {
+            Visio(sa.state, obj.name);
+        },
+        () => {
+            sa.RunCommand(SA.COMMAND.SOU);
+            Visio(sa.state);
+        }
+    );
+
+    sa.on(SA.STATES.RV, (nextstates) =>
+        Registration(
+            RName.value,
+            RPass.value,
+            () => {
+                sa.RunCommand(SA.COMMAND.SIN);
+                Visio(sa.state, RName.value);
+            },
+            () => {
+                sa.RunCommand(SA.COMMAND.REJ);
+                Visio(sa.state);
+            }
+        )
+    );
+
+    sa.on(SA.STATES.SV, (nextstates) =>
+        SignIn(
+            SName.value,
+            SPass.value,
+            () => {
+                setCurrentUser({ name: SName.value });
+                broadcastState();
+                sa.RunCommand(SA.COMMAND.LIN);
+                Visio(sa.state, SName.value);
+            },
+            () => {
+                sa.RunCommand(SA.COMMAND.ADE);
+                Visio(sa.state);
+            }
+        )
+    );
+
+    NRegistration.onclick = () => {
+        sa.RunCommand(SA.COMMAND.REG);
+        Visio(sa.state);
+    };
+
+    NSignIn.onclick = () => {
+        sa.RunCommand(SA.COMMAND.SIN);
+        Visio(sa.state);
+    };
+
+    SSignIn.onclick = async () => {
+        await SignIn(
+            SName.value,
+            SPass.value,
+            () => {
+                setCurrentUser({ name: SName.value });
+                Visio(SA.STATES.A, SName.value);
+            },
+            () => {
+                alert("Неверный логин или пароль");
+            }
+        );
+    };
+
+    SCancel.onclick = () => {
+        sa.RunCommand(SA.COMMAND.CAN);
+        Visio(sa.state);
+    };
+
+    RRegistration.onclick = () => {
+        sa.RunCommand(SA.COMMAND.REG);
+        Visio(sa.state);
+    };
+
+    RCancel.onclick = () => {
+        sa.RunCommand(SA.COMMAND.CAN);
+        Visio(sa.state);
+    };
+
+    ASignOut.onclick = async () => {
+        await SignOut(() => {
+            setCurrentUser(null);
+            sa.state = SA.STATES.N;
+            Visio(sa.state);
+        });
+    };
+</script>

@@ -1,0 +1,183 @@
+@startuml Lec03LibN_Clean_Diagram
+
+skinparam linetype ortho
+skinparam nodesep 30
+skinparam ranksep 40
+skinparam package {
+    BackgroundColor White
+    BorderColor Black
+}
+
+title Чистая UML-диаграмма: Abstract Factory Pattern
+
+' Уровень 1: Абстракции и фабричные методы
+rectangle "Уровень 1: Абстракции" {
+  interface IBonus <<Interface>> {
+    + cost1hour: float
+    + calc(number_hours: float): float
+  }
+  
+  interface IFactory <<Interface>> {
+    + getA(cost1hour: float): IBonus
+    + getB(cost1hour: float, x: float): IBonus
+    + getC(cost1hour: float, x: float, y: float): IBonus
+  }
+  
+  class Lec03BLib <<Static>> {
+    + getL1(): IFactory
+    + getL2(a: float): IFactory
+    + getL3(a: float, b: float): IFactory
+  }
+}
+
+' Уровень 2: Конкретные фабрики
+rectangle "Уровень 2: Фабрики" {
+  class FactoryL1 {
+    + getA(cost1hour: float): IBonus
+    + getB(cost1hour: float, x: float): IBonus
+    + getC(cost1hour: float, x: float, y: float): IBonus
+  }
+  
+  class FactoryL2 {
+    - a: float
+    + FactoryL2(a: float)
+    + getA(cost1hour: float): IBonus
+    + getB(cost1hour: float, x: float): IBonus
+    + getC(cost1hour: float, x: float, y: float): IBonus
+  }
+  
+  class FactoryL3 {
+    - a: float
+    - b: float
+    + FactoryL3(a: float, b: float)
+    + getA(cost1hour: float): IBonus
+    + getB(cost1hour: float, x: float): IBonus
+    + getC(cost1hour: float, x: float, y: float): IBonus
+  }
+}
+
+' Уровень 3: Продукты (Level 1)
+rectangle "Уровень 3: Продукты Level 1" {
+  class BonusA {
+    + calc(number_hours: float): float
+  }
+  
+  class BonusB {
+    - x: float
+    + calc(number_hours: float): float
+  }
+  
+  class BonusC {
+    - x: float
+    - y: float
+    + calc(number_hours: float): float
+  }
+}
+
+' Уровень 4: Продукты (Level 2)
+rectangle "Уровень 4: Продукты Level 2" {
+  class BonusL2A {
+    - a: float
+    + calc(number_hours: float): float
+  }
+  
+  class BonusL2B {
+    - x: float
+    - a: float
+    + calc(number_hours: float): float
+  }
+  
+  class BonusL2C {
+    - x: float
+    - y: float
+    - a: float
+    + calc(number_hours: float): float
+  }
+}
+
+' Уровень 5: Продукты (Level 3)
+rectangle "Уровень 5: Продукты Level 3" {
+  class BonusL3A {
+    - a: float
+    - b: float
+    + calc(number_hours: float): float
+  }
+  
+  class BonusL3B {
+    - x: float
+    - a: float
+    - b: float
+    + calc(number_hours: float): float
+  }
+  
+  class BonusL3C {
+    - x: float
+    - y: float
+    - a: float
+    - b: float
+    + calc(number_hours: float): float
+  }
+}
+
+' Уровень 6: Клиент
+rectangle "Уровень 6: Клиентское приложение" {
+  class Employee {
+    - bonus: IBonus
+    + calcBonus(number_hours: float): float
+  }
+}
+
+' Вертикальные связи между уровнями
+Lec03BLib --> IFactory
+
+IFactory <|-- FactoryL1
+IFactory <|-- FactoryL2
+IFactory <|-- FactoryL3
+
+FactoryL1 --> BonusA
+FactoryL1 --> BonusB
+FactoryL1 --> BonusC
+
+FactoryL2 --> BonusL2A
+FactoryL2 --> BonusL2B
+FactoryL2 --> BonusL2C
+
+FactoryL3 --> BonusL3A
+FactoryL3 --> BonusL3B
+FactoryL3 --> BonusL3C
+
+IBonus <|-- BonusA
+IBonus <|-- BonusB
+IBonus <|-- BonusC
+IBonus <|-- BonusL2A
+IBonus <|-- BonusL2B
+IBonus <|-- BonusL2C
+IBonus <|-- BonusL3A
+IBonus <|-- BonusL3B
+IBonus <|-- BonusL3C
+
+Employee --> IBonus
+
+' Горизонтальные группировки (необязательно, но для наглядности)
+together {
+  BonusA, BonusB, BonusC
+}
+
+together {
+  BonusL2A, BonusL2B, BonusL2C
+}
+
+together {
+  BonusL3A, BonusL3B, BonusL3C
+}
+
+legend right
+  | Цвета и обозначения |
+  Интерфейсы - голубой
+  Статические классы - зеленый
+  Конкретные классы - белый
+  Стрелки: --> создание
+  Стрелки: <|-- реализация
+end legend
+
+@enduml
