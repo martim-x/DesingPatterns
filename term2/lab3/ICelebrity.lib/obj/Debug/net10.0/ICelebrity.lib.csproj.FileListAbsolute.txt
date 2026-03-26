@@ -1,0 +1,12 @@
+C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab3\ICelebrity.lib\bin\Debug\net10.0\ICelebrity.lib.deps.json
+C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab3\ICelebrity.lib\bin\Debug\net10.0\ICelebrity.lib.dll
+C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab3\ICelebrity.lib\bin\Debug\net10.0\ICelebrity.lib.pdb
+C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab3\ICelebrity.lib\obj\Debug\net10.0\ICelebrity.lib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab3\ICelebrity.lib\obj\Debug\net10.0\ICelebrity.lib.AssemblyInfoInputs.cache
+C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab3\ICelebrity.lib\obj\Debug\net10.0\ICelebrity.lib.AssemblyInfo.cs
+C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab3\ICelebrity.lib\obj\Debug\net10.0\ICelebrity.lib.csproj.CoreCompileInputs.cache
+C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab3\ICelebrity.lib\obj\Debug\net10.0\ICelebrity.lib.sourcelink.json
+C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab3\ICelebrity.lib\obj\Debug\net10.0\ICelebrity.lib.dll
+C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab3\ICelebrity.lib\obj\Debug\net10.0\refint\ICelebrity.lib.dll
+C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab3\ICelebrity.lib\obj\Debug\net10.0\ICelebrity.lib.pdb
+C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab3\ICelebrity.lib\obj\Debug\net10.0\ref\ICelebrity.lib.dll

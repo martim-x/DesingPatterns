@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="ICelebrity.lib/ICelebrity.lib.csproj" />
+  <Project Path="JSON.lib/JSON.lib.csproj" />
+  <Project Path="Test/Test.csproj" />
+</Solution>
