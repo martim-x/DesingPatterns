@@ -9,7 +9,7 @@
       "Test/1.0.0": {
         "dependencies": {
           "ICelebrity.lib": "1.0.0",
-          "JSON.lib": "1.0.0"
+          "JsonRepository.lib": "1.0.0"
         },
         "runtime": {
           "Test.dll": {}
@@ -23,12 +23,12 @@
           }
         }
       },
-      "JSON.lib/1.0.0": {
+      "JsonRepository.lib/1.0.0": {
         "dependencies": {
           "ICelebrity.lib": "1.0.0"
         },
         "runtime": {
-          "JSON.lib.dll": {
+          "JsonRepository.lib.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -47,7 +47,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "JSON.lib/1.0.0": {
+    "JsonRepository.lib/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

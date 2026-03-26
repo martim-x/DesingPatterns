@@ -2,7 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ICelebrity.lib\ICelebrity.lib.csproj" />
-    <ProjectReference Include="..\JSON.lib\JSON.lib.csproj" />
+    <ProjectReference Include="..\JsonRepository.lib\JsonRepository.lib.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

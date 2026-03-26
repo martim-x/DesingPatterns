@@ -6,9 +6,9 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        Repository.JSONFileName = "Celebrities.json";
+        JsonRepository.JSONFileName = "Celebrities.json";
 
-        using (ICelebrity<Celebrity> repo = Repository.Create("Celebrities"))
+        using (ICelebrity<Celebrity> repo = JsonRepository.Create("Celebrities"))
         {
             Console.WriteLine("-------------- GetAll ----------------------");
             List<Celebrity> celebrities = repo.GetAll();
@@ -70,7 +70,7 @@ internal class Program
             Console.WriteLine("SaveChanges = {0}", repo.SaveChanges());
         }
 
-        using (ICelebrity<Celebrity> repo = Repository.Create("Celebrities"))
+        using (ICelebrity<Celebrity> repo = JsonRepository.Create("Celebrities"))
         {
             List<Celebrity> celebrities = repo.GetAll();
             celebrities.ForEach(c =>

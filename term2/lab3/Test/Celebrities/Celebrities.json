@@ -42,13 +42,19 @@
     "PhotoPath": "/Photo/Dijkstra.jpg"
   },
   {
-    "Id": 9,
+    "Id": 10,
     "FirstName": "Marvin",
     "Surname": "Minsky",
     "PhotoPath": "/Photo/Minsky.jpg"
   },
   {
-    "Id": 10,
+    "Id": 11,
+    "FirstName": "Marvin",
+    "Surname": "Minsky",
+    "PhotoPath": "/Photo/Minsky.jpg"
+  },
+  {
+    "Id": 12,
     "FirstName": "Marvin",
     "Surname": "Minsky",
     "PhotoPath": "/Photo/Minsky.jpg"

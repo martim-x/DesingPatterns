@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ICelebrity.lib")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+17410c4516c6d444aee40489a798c695c3441d91")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+208639e912079fd5a7728f2152c826fc839c4d01")]
 [assembly: System.Reflection.AssemblyProductAttribute("ICelebrity.lib")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ICelebrity.lib")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

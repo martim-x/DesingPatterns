@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ICelebrity.lib;
+
+public record Celebrity(int Id, string FirstName, string Surname, string PhotoPath);
 
 public interface ICelebrity<T> : IDisposable
 {

@@ -12,17 +12,17 @@
           "bin/placeholder/ICelebrity.lib.dll": {}
         }
       },
-      "JSON.lib/1.0.0": {
+      "JsonRepository.lib/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
           "ICelebrity.lib": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/JSON.lib.dll": {}
+          "bin/placeholder/JsonRepository.lib.dll": {}
         },
         "runtime": {
-          "bin/placeholder/JSON.lib.dll": {}
+          "bin/placeholder/JsonRepository.lib.dll": {}
         }
       }
     }
@@ -33,16 +33,16 @@
       "path": "../ICelebrity.lib/ICelebrity.lib.csproj",
       "msbuildProject": "../ICelebrity.lib/ICelebrity.lib.csproj"
     },
-    "JSON.lib/1.0.0": {
+    "JsonRepository.lib/1.0.0": {
       "type": "project",
-      "path": "../JSON.lib/JSON.lib.csproj",
-      "msbuildProject": "../JSON.lib/JSON.lib.csproj"
+      "path": "../JsonRepository.lib/JsonRepository.lib.csproj",
+      "msbuildProject": "../JsonRepository.lib/JsonRepository.lib.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
       "ICelebrity.lib >= 1.0.0",
-      "JSON.lib >= 1.0.0"
+      "JsonRepository.lib >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -52,11 +52,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\timof\\Documents\\Visual Studio Code\\DesingPatterns\\term2\\lab3\\Test\\Test.csproj",
+      "projectUniqueName": "C:\\Users\\timof\\Documents\\Visual Studio Code\\DesingPatterns\\term2\\lab3\\test\\Test.csproj",
       "projectName": "Test",
-      "projectPath": "C:\\Users\\timof\\Documents\\Visual Studio Code\\DesingPatterns\\term2\\lab3\\Test\\Test.csproj",
+      "projectPath": "C:\\Users\\timof\\Documents\\Visual Studio Code\\DesingPatterns\\term2\\lab3\\test\\Test.csproj",
       "packagesPath": "C:\\Users\\timof\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\timof\\Documents\\Visual Studio Code\\DesingPatterns\\term2\\lab3\\Test\\obj\\",
+      "outputPath": "C:\\Users\\timof\\Documents\\Visual Studio Code\\DesingPatterns\\term2\\lab3\\test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -80,8 +80,8 @@
             "C:\\Users\\timof\\Documents\\Visual Studio Code\\DesingPatterns\\term2\\lab3\\ICelebrity.lib\\ICelebrity.lib.csproj": {
               "projectPath": "C:\\Users\\timof\\Documents\\Visual Studio Code\\DesingPatterns\\term2\\lab3\\ICelebrity.lib\\ICelebrity.lib.csproj"
             },
-            "C:\\Users\\timof\\Documents\\Visual Studio Code\\DesingPatterns\\term2\\lab3\\JSON.lib\\JSON.lib.csproj": {
-              "projectPath": "C:\\Users\\timof\\Documents\\Visual Studio Code\\DesingPatterns\\term2\\lab3\\JSON.lib\\JSON.lib.csproj"
+            "C:\\Users\\timof\\Documents\\Visual Studio Code\\DesingPatterns\\term2\\lab3\\JsonRepository.lib\\JsonRepository.lib.csproj": {
+              "projectPath": "C:\\Users\\timof\\Documents\\Visual Studio Code\\DesingPatterns\\term2\\lab3\\JsonRepository.lib\\JsonRepository.lib.csproj"
             }
           }
         }

@@ -343,14 +343,14 @@
         }
       }
     },
-    "C:\\Users\\timof\\Documents\\Visual Studio Code\\DesingPatterns\\term2\\lab3\\JSON.lib\\JSON.lib.csproj": {
+    "C:\\Users\\timof\\Documents\\Visual Studio Code\\DesingPatterns\\term2\\lab3\\JsonRepository.lib\\JsonRepository.lib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\timof\\Documents\\Visual Studio Code\\DesingPatterns\\term2\\lab3\\JSON.lib\\JSON.lib.csproj",
-        "projectName": "JSON.lib",
-        "projectPath": "C:\\Users\\timof\\Documents\\Visual Studio Code\\DesingPatterns\\term2\\lab3\\JSON.lib\\JSON.lib.csproj",
+        "projectUniqueName": "C:\\Users\\timof\\Documents\\Visual Studio Code\\DesingPatterns\\term2\\lab3\\JsonRepository.lib\\JsonRepository.lib.csproj",
+        "projectName": "JsonRepository.lib",
+        "projectPath": "C:\\Users\\timof\\Documents\\Visual Studio Code\\DesingPatterns\\term2\\lab3\\JsonRepository.lib\\JsonRepository.lib.csproj",
         "packagesPath": "C:\\Users\\timof\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\timof\\Documents\\Visual Studio Code\\DesingPatterns\\term2\\lab3\\JSON.lib\\obj\\",
+        "outputPath": "C:\\Users\\timof\\Documents\\Visual Studio Code\\DesingPatterns\\term2\\lab3\\JsonRepository.lib\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -717,8 +717,8 @@
               "C:\\Users\\timof\\Documents\\Visual Studio Code\\DesingPatterns\\term2\\lab3\\ICelebrity.lib\\ICelebrity.lib.csproj": {
                 "projectPath": "C:\\Users\\timof\\Documents\\Visual Studio Code\\DesingPatterns\\term2\\lab3\\ICelebrity.lib\\ICelebrity.lib.csproj"
               },
-              "C:\\Users\\timof\\Documents\\Visual Studio Code\\DesingPatterns\\term2\\lab3\\JSON.lib\\JSON.lib.csproj": {
-                "projectPath": "C:\\Users\\timof\\Documents\\Visual Studio Code\\DesingPatterns\\term2\\lab3\\JSON.lib\\JSON.lib.csproj"
+              "C:\\Users\\timof\\Documents\\Visual Studio Code\\DesingPatterns\\term2\\lab3\\JsonRepository.lib\\JsonRepository.lib.csproj": {
+                "projectPath": "C:\\Users\\timof\\Documents\\Visual Studio Code\\DesingPatterns\\term2\\lab3\\JsonRepository.lib\\JsonRepository.lib.csproj"
               }
             }
           }
