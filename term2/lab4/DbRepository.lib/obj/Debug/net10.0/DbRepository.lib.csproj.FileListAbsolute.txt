@@ -1,0 +1,16 @@
+C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab4\DbRepository.lib\bin\Debug\net10.0\DbRepository.lib.deps.json
+C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab4\DbRepository.lib\bin\Debug\net10.0\DbRepository.lib.dll
+C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab4\DbRepository.lib\bin\Debug\net10.0\DbRepository.lib.pdb
+C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab4\DbRepository.lib\bin\Debug\net10.0\ICelebrity.lib.dll
+C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab4\DbRepository.lib\bin\Debug\net10.0\ICelebrity.lib.pdb
+C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab4\DbRepository.lib\obj\Debug\net10.0\DbRepository.lib.csproj.AssemblyReference.cache
+C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab4\DbRepository.lib\obj\Debug\net10.0\DbRepository.lib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab4\DbRepository.lib\obj\Debug\net10.0\DbRepository.lib.AssemblyInfoInputs.cache
+C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab4\DbRepository.lib\obj\Debug\net10.0\DbRepository.lib.AssemblyInfo.cs
+C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab4\DbRepository.lib\obj\Debug\net10.0\DbRepository.lib.csproj.CoreCompileInputs.cache
+C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab4\DbRepository.lib\obj\Debug\net10.0\DbRepository.lib.sourcelink.json
+C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab4\DbRepository.lib\obj\Debug\net10.0\DbReposi.7503F7B8.Up2Date
+C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab4\DbRepository.lib\obj\Debug\net10.0\DbRepository.lib.dll
+C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab4\DbRepository.lib\obj\Debug\net10.0\refint\DbRepository.lib.dll
+C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab4\DbRepository.lib\obj\Debug\net10.0\DbRepository.lib.pdb
+C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab4\DbRepository.lib\obj\Debug\net10.0\ref\DbRepository.lib.dll

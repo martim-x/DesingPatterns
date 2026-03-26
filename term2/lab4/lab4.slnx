@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="DbRepository.lib/DbRepository.lib.csproj" />
+  <Project Path="ICelebrity.lib/ICelebrity.lib.csproj" />
+  <Project Path="Test/Test.csproj" />
+</Solution>
