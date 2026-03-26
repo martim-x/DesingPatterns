@@ -1,0 +1,16 @@
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab3/JsonRepository.lib/bin/Debug/net8.0/JsonRepository.lib.deps.json
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab3/JsonRepository.lib/bin/Debug/net8.0/JsonRepository.lib.dll
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab3/JsonRepository.lib/bin/Debug/net8.0/JsonRepository.lib.pdb
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab3/JsonRepository.lib/bin/Debug/net8.0/ICelebrity.lib.dll
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab3/JsonRepository.lib/bin/Debug/net8.0/ICelebrity.lib.pdb
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab3/JsonRepository.lib/obj/Debug/net8.0/JsonRepository.lib.csproj.AssemblyReference.cache
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab3/JsonRepository.lib/obj/Debug/net8.0/JsonRepository.lib.GeneratedMSBuildEditorConfig.editorconfig
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab3/JsonRepository.lib/obj/Debug/net8.0/JsonRepository.lib.AssemblyInfoInputs.cache
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab3/JsonRepository.lib/obj/Debug/net8.0/JsonRepository.lib.AssemblyInfo.cs
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab3/JsonRepository.lib/obj/Debug/net8.0/JsonRepository.lib.csproj.CoreCompileInputs.cache
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab3/JsonRepository.lib/obj/Debug/net8.0/JsonRepository.lib.sourcelink.json
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab3/JsonRepository.lib/obj/Debug/net8.0/JsonRepo.C4228E22.Up2Date
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab3/JsonRepository.lib/obj/Debug/net8.0/JsonRepository.lib.dll
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab3/JsonRepository.lib/obj/Debug/net8.0/refint/JsonRepository.lib.dll
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab3/JsonRepository.lib/obj/Debug/net8.0/JsonRepository.lib.pdb
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab3/JsonRepository.lib/obj/Debug/net8.0/ref/JsonRepository.lib.dll

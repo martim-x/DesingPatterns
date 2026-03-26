@@ -1,0 +1,12 @@
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab3/ICelebrity.lib/bin/Debug/net8.0/ICelebrity.lib.deps.json
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab3/ICelebrity.lib/bin/Debug/net8.0/ICelebrity.lib.dll
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab3/ICelebrity.lib/bin/Debug/net8.0/ICelebrity.lib.pdb
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab3/ICelebrity.lib/obj/Debug/net8.0/ICelebrity.lib.GeneratedMSBuildEditorConfig.editorconfig
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab3/ICelebrity.lib/obj/Debug/net8.0/ICelebrity.lib.AssemblyInfoInputs.cache
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab3/ICelebrity.lib/obj/Debug/net8.0/ICelebrity.lib.AssemblyInfo.cs
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab3/ICelebrity.lib/obj/Debug/net8.0/ICelebrity.lib.csproj.CoreCompileInputs.cache
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab3/ICelebrity.lib/obj/Debug/net8.0/ICelebrity.lib.sourcelink.json
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab3/ICelebrity.lib/obj/Debug/net8.0/ICelebrity.lib.dll
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab3/ICelebrity.lib/obj/Debug/net8.0/refint/ICelebrity.lib.dll
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab3/ICelebrity.lib/obj/Debug/net8.0/ICelebrity.lib.pdb
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab3/ICelebrity.lib/obj/Debug/net8.0/ref/ICelebrity.lib.dll

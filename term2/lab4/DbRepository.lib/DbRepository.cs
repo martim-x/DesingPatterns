@@ -13,6 +13,8 @@ public class DbRepository : ICelebrity<Celebrity>
     private DbRepository(string connectionString)
     {
         this._connectionString = connectionString;
+        this.EnsureCreated();
+        this.FlushFill();
     }
 
     public static ICelebrity<Celebrity> Create(string connectionString)
@@ -195,5 +197,62 @@ public class DbRepository : ICelebrity<Celebrity>
     public void Dispose()
     {
         // no-op
+    }
+
+    private void EnsureCreated()
+    {
+        using var connection = this.CreateConnection();
+        connection.Open();
+
+        using var cmd = new NpgsqlCommand(
+            @"
+        CREATE TABLE IF NOT EXISTS celebrities (
+            id         SERIAL PRIMARY KEY,
+            firstname  VARCHAR(100) NOT NULL,
+            surname    VARCHAR(100) NOT NULL,
+            photopath  VARCHAR(255) NOT NULL
+        );",
+            connection
+        );
+
+        cmd.ExecuteNonQuery();
+    }
+
+    public void FlushFill()
+    {
+        using var connection = this.CreateConnection();
+        connection.Open();
+
+        using (
+            var cmd = new NpgsqlCommand("TRUNCATE TABLE celebrities RESTART IDENTITY;", connection)
+        )
+        {
+            cmd.ExecuteNonQuery();
+        }
+
+        var seed = new List<Celebrity>
+        {
+            new Celebrity(0, "Noam", "Chomsky", "/Photo/Chomsky.jpg"),
+            new Celebrity(0, "Tim", "Berners-Lee", "/Photo/Berners-Lee.jpg"),
+            new Celebrity(0, "Edgar", "Codd", "/Photo/Codd.jpg"),
+            new Celebrity(0, "Donald", "Knuth", "/Photo/Knuth.jpg"),
+            new Celebrity(0, "Linus", "Torvalds", "/Photo/Torvalds.jpg"),
+            new Celebrity(0, "John", "Neumann", "/Photo/Neumann.jpg"),
+            new Celebrity(0, "Edsgar", "Dijkstra", "/Photo/Dijkstra.jpg"),
+            new Celebrity(0, "Marvin", "Minsky", "/Photo/Minsky.jpg"),
+        };
+
+        foreach (var c in seed)
+        {
+            using var cmd = new NpgsqlCommand(
+                @"INSERT INTO celebrities (firstname, surname, photopath)
+              VALUES (@fn, @sn, @pp);",
+                connection
+            );
+            cmd.Parameters.AddWithValue("fn", c.FirstName);
+            cmd.Parameters.AddWithValue("sn", c.Surname);
+            cmd.Parameters.AddWithValue("pp", c.PhotoPath);
+            cmd.ExecuteNonQuery();
+        }
     }
 }

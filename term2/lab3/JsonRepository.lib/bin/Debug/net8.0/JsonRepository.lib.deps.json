@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "JsonRepository.lib/1.0.0": {
+        "dependencies": {
+          "ICelebrity.lib": "1.0.0"
+        },
+        "runtime": {
+          "JsonRepository.lib.dll": {}
+        }
+      },
+      "ICelebrity.lib/1.0.0": {
+        "runtime": {
+          "ICelebrity.lib.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "JsonRepository.lib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ICelebrity.lib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

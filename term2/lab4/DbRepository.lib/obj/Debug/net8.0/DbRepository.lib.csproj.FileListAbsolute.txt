@@ -1,0 +1,16 @@
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab4/DbRepository.lib/bin/Debug/net8.0/DbRepository.lib.deps.json
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab4/DbRepository.lib/bin/Debug/net8.0/DbRepository.lib.dll
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab4/DbRepository.lib/bin/Debug/net8.0/DbRepository.lib.pdb
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab4/DbRepository.lib/bin/Debug/net8.0/ICelebrity.lib.dll
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab4/DbRepository.lib/bin/Debug/net8.0/ICelebrity.lib.pdb
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab4/DbRepository.lib/obj/Debug/net8.0/DbRepository.lib.csproj.AssemblyReference.cache
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab4/DbRepository.lib/obj/Debug/net8.0/DbRepository.lib.GeneratedMSBuildEditorConfig.editorconfig
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab4/DbRepository.lib/obj/Debug/net8.0/DbRepository.lib.AssemblyInfoInputs.cache
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab4/DbRepository.lib/obj/Debug/net8.0/DbRepository.lib.AssemblyInfo.cs
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab4/DbRepository.lib/obj/Debug/net8.0/DbRepository.lib.csproj.CoreCompileInputs.cache
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab4/DbRepository.lib/obj/Debug/net8.0/DbRepository.lib.sourcelink.json
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab4/DbRepository.lib/obj/Debug/net8.0/DbReposi.7503F7B8.Up2Date
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab4/DbRepository.lib/obj/Debug/net8.0/DbRepository.lib.dll
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab4/DbRepository.lib/obj/Debug/net8.0/refint/DbRepository.lib.dll
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab4/DbRepository.lib/obj/Debug/net8.0/DbRepository.lib.pdb
+/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab4/DbRepository.lib/obj/Debug/net8.0/ref/DbRepository.lib.dll
