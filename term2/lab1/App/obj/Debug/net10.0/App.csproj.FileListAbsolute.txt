@@ -1,6 +1,0 @@
-C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab1\App\obj\Debug\net10.0\App.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab1\App\obj\Debug\net10.0\App.AssemblyInfoInputs.cache
-C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab1\App\obj\Debug\net10.0\App.AssemblyInfo.cs
-C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab1\App\obj\Debug\net10.0\App.csproj.CoreCompileInputs.cache
-C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab1\App\obj\Debug\net10.0\App.sourcelink.json
-C:\Users\timof\Documents\Visual Studio Code\DesingPatterns\term2\lab1\App\obj\Debug\net10.0\App.csproj.AssemblyReference.cache
