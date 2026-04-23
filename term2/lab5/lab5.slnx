@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="ServiceLocator/ServiceLocator.csproj" />
+  <Project Path="Test/Test.csproj" />
+</Solution>
