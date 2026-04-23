@@ -1,258 +1,203 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using ICelebrity.lib;
-using Npgsql;
+using Microsoft.EntityFrameworkCore;
 
 namespace ICelebrity.lib;
 
-public class DbRepository : ICelebrity<Celebrity>
+public class CelebrityContext : DbContext
 {
     private readonly string _connectionString;
+
+    public CelebrityContext(string connectionString)
+    {
+        _connectionString = connectionString;
+    }
+
+    public DbSet<Celebrity> Celebrities => Set<Celebrity>();
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            optionsBuilder.UseNpgsql(_connectionString);
+        }
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Celebrity>(entity =>
+        {
+            entity.ToTable("Celebrities");
+            entity.HasKey(e => e.Id);
+
+            entity.Property(e => e.Id).HasColumnName("Id").ValueGeneratedOnAdd();
+
+            entity
+                .Property(e => e.FirstName)
+                .HasColumnName("Firstname")
+                .HasMaxLength(100)
+                .IsRequired();
+
+            entity.Property(e => e.Surname).HasColumnName("Surname").HasMaxLength(100).IsRequired();
+
+            entity
+                .Property(e => e.PhotoPath)
+                .HasColumnName("PhotoPath")
+                .HasMaxLength(200)
+                .IsRequired();
+        });
+    }
+}
+
+public class EfDbRepository : ICelebrity<Celebrity>
+{
+    private readonly CelebrityContext _ctx;
     private int _scn = 0;
 
-    private DbRepository(string connectionString)
+    private EfDbRepository(string connectionString)
     {
-        this._connectionString = connectionString;
-        this.EnsureCreated();
-        this.FlushFill();
+        _ctx = new CelebrityContext(connectionString);
+        _ctx.Database.EnsureCreated(); // аналог EnsureCreated в твоём ADO-варианте
+        FlushFill(); // если хочешь автозаполнение
     }
 
-    public static ICelebrity<Celebrity> Create(string connectionString)
-    {
-        return new DbRepository(connectionString);
-    }
+    public static ICelebrity<Celebrity> Create(string connectionString) =>
+        new EfDbRepository(connectionString);
 
-    private NpgsqlConnection CreateConnection()
-    {
-        return new NpgsqlConnection(this._connectionString);
-    }
+    public List<Celebrity> GetAll() => _ctx.Celebrities.OrderBy(c => c.Id).AsNoTracking().ToList();
 
-    public List<Celebrity> GetAll()
-    {
-        var result = new List<Celebrity>();
-
-        using (var connection = this.CreateConnection())
-        {
-            connection.Open();
-            using var cmd = new NpgsqlCommand(
-                "SELECT id, firstname, surname, photopath FROM celebrities ORDER BY id",
-                connection
-            );
-
-            using var reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                var cel = new Celebrity(
-                    reader.GetInt32(0),
-                    reader.GetString(1),
-                    reader.GetString(2),
-                    reader.GetString(3)
-                );
-                result.Add(cel);
-            }
-        }
-
-        return result;
-    }
-
-    public Celebrity? GetById(int id)
-    {
-        using var connection = this.CreateConnection();
-        connection.Open();
-
-        using var cmd = new NpgsqlCommand(
-            "SELECT id, firstname, surname, photopath FROM celebrities WHERE id = @id",
-            connection
-        );
-        cmd.Parameters.AddWithValue("id", id);
-
-        using var reader = cmd.ExecuteReader();
-        if (!reader.Read())
-            return null;
-
-        return new Celebrity(
-            reader.GetInt32(0),
-            reader.GetString(1),
-            reader.GetString(2),
-            reader.GetString(3)
-        );
-    }
+    public Celebrity? GetById(int id) =>
+        _ctx.Celebrities.AsNoTracking().FirstOrDefault(c => c.Id == id);
 
     public bool Add(Celebrity celebrity)
     {
-        using var connection = this.CreateConnection();
-        connection.Open();
-
-        using var cmd = new NpgsqlCommand(
-            @"INSERT INTO celebrities (firstname, surname, photopath)
-              VALUES (@fn, @sn, @pp);",
-            connection
-        );
-        cmd.Parameters.AddWithValue("fn", celebrity.FirstName);
-        cmd.Parameters.AddWithValue("sn", celebrity.Surname);
-        cmd.Parameters.AddWithValue("pp", celebrity.PhotoPath);
-
-        var rows = cmd.ExecuteNonQuery();
-        if (rows > 0)
-        {
-            this._scn++;
-            return true;
-        }
-
-        return false;
+        _ctx.Celebrities.Add(celebrity);
+        _scn++;
+        return true;
     }
 
     public bool DelById(int id)
     {
-        using var connection = this.CreateConnection();
-        connection.Open();
+        var entity = _ctx.Celebrities.Find(id);
+        if (entity == null)
+            return false;
 
-        using var cmd = new NpgsqlCommand("DELETE FROM celebrities WHERE id = @id", connection);
-        cmd.Parameters.AddWithValue("id", id);
-
-        var rows = cmd.ExecuteNonQuery();
-        if (rows > 0)
-        {
-            this._scn++;
-            return true;
-        }
-
-        return false;
+        _ctx.Celebrities.Remove(entity);
+        _scn++;
+        return true;
     }
 
     public bool UpdateById(int id, Celebrity celebrity)
     {
-        using var connection = this.CreateConnection();
-        connection.Open();
+        var entity = _ctx.Celebrities.Find(id);
+        if (entity == null)
+            return false;
 
-        using var cmd = new NpgsqlCommand(
-            @"UPDATE celebrities
-              SET firstname = @fn,
-                  surname   = @sn,
-                  photopath = @pp
-              WHERE id = @id",
-            connection
-        );
-        cmd.Parameters.AddWithValue("fn", celebrity.FirstName);
-        cmd.Parameters.AddWithValue("sn", celebrity.Surname);
-        cmd.Parameters.AddWithValue("pp", celebrity.PhotoPath);
-        cmd.Parameters.AddWithValue("id", id);
+        entity.FirstName = celebrity.FirstName;
+        entity.Surname = celebrity.Surname;
+        entity.PhotoPath = celebrity.PhotoPath;
 
-        var rows = cmd.ExecuteNonQuery();
-        if (rows > 0)
-        {
-            this._scn++;
-            return true;
-        }
-
-        return false;
+        _scn++;
+        return true;
     }
 
     public int AddAndGetId(Celebrity celebrity)
     {
-        using var connection = this.CreateConnection();
-        connection.Open();
-
-        using var cmd = new NpgsqlCommand(
-            @"INSERT INTO celebrities (firstname, surname, photopath)
-              VALUES (@fn, @sn, @pp)
-              RETURNING id;",
-            connection
-        );
-        cmd.Parameters.AddWithValue("fn", celebrity.FirstName);
-        cmd.Parameters.AddWithValue("sn", celebrity.Surname);
-        cmd.Parameters.AddWithValue("pp", celebrity.PhotoPath);
-
-        var result = cmd.ExecuteScalar();
-        var id = result is int v ? v : Convert.ToInt32(result);
-        this._scn++;
-        return id;
+        _ctx.Celebrities.Add(celebrity);
+        _scn++;
+        _ctx.SaveChanges();
+        _scn = 0;
+        return celebrity.Id;
     }
 
     public int GetIdByName(string celebrityName)
     {
-        using var connection = this.CreateConnection();
-        connection.Open();
+        var cel = _ctx
+            .Celebrities.AsNoTracking()
+            .FirstOrDefault(c =>
+                EF.Functions.ILike(c.FirstName + "|" + c.Surname, $"%{celebrityName}%")
+            );
 
-        using var cmd = new NpgsqlCommand(
-            @"SELECT id
-              FROM celebrities
-              WHERE (firstname || '|' || surname) ILIKE '%' || @name || '%'
-              ORDER BY id
-              LIMIT 1;",
-            connection
-        );
-        cmd.Parameters.AddWithValue("name", celebrityName);
-
-        var result = cmd.ExecuteScalar();
-        return result is int id ? id : -1;
+        return cel?.Id ?? -1;
     }
 
     public int SaveChanges()
     {
-        this._scn = 0;
-        return this._scn;
+        if (_scn <= 0)
+            return 0;
+
+        var affected = _ctx.SaveChanges();
+        _scn = 0;
+        return affected;
     }
 
     public void Dispose()
     {
-        // no-op
+        SaveChanges();
+        _ctx.Dispose();
     }
 
-    private void EnsureCreated()
+    private void FlushFill()
     {
-        using var connection = this.CreateConnection();
-        connection.Open();
-
-        using var cmd = new NpgsqlCommand(
-            @"
-        CREATE TABLE IF NOT EXISTS celebrities (
-            id         SERIAL PRIMARY KEY,
-            firstname  VARCHAR(100) NOT NULL,
-            surname    VARCHAR(100) NOT NULL,
-            photopath  VARCHAR(255) NOT NULL
-        );",
-            connection
-        );
-
-        cmd.ExecuteNonQuery();
-    }
-
-    public void FlushFill()
-    {
-        using var connection = this.CreateConnection();
-        connection.Open();
-
-        using (
-            var cmd = new NpgsqlCommand("TRUNCATE TABLE celebrities RESTART IDENTITY;", connection)
-        )
-        {
-            cmd.ExecuteNonQuery();
-        }
+        if (_ctx.Celebrities.Any())
+            return;
 
         var seed = new List<Celebrity>
         {
-            new Celebrity(0, "Noam", "Chomsky", "/Photo/Chomsky.jpg"),
-            new Celebrity(0, "Tim", "Berners-Lee", "/Photo/Berners-Lee.jpg"),
-            new Celebrity(0, "Edgar", "Codd", "/Photo/Codd.jpg"),
-            new Celebrity(0, "Donald", "Knuth", "/Photo/Knuth.jpg"),
-            new Celebrity(0, "Linus", "Torvalds", "/Photo/Torvalds.jpg"),
-            new Celebrity(0, "John", "Neumann", "/Photo/Neumann.jpg"),
-            new Celebrity(0, "Edsgar", "Dijkstra", "/Photo/Dijkstra.jpg"),
-            new Celebrity(0, "Marvin", "Minsky", "/Photo/Minsky.jpg"),
+            new()
+            {
+                FirstName = "Noam",
+                Surname = "Chomsky",
+                PhotoPath = "/Photo/Chomsky.jpg",
+            },
+            new()
+            {
+                FirstName = "Tim",
+                Surname = "Berners-Lee",
+                PhotoPath = "/Photo/Berners-Lee.jpg",
+            },
+            new()
+            {
+                FirstName = "Edgar",
+                Surname = "Codd",
+                PhotoPath = "/Photo/Codd.jpg",
+            },
+            new()
+            {
+                FirstName = "Donald",
+                Surname = "Knuth",
+                PhotoPath = "/Photo/Knuth.jpg",
+            },
+            new()
+            {
+                FirstName = "Linus",
+                Surname = "Torvalds",
+                PhotoPath = "/Photo/Torvalds.jpg",
+            },
+            new()
+            {
+                FirstName = "John",
+                Surname = "Neumann",
+                PhotoPath = "/Photo/Neumann.jpg",
+            },
+            new()
+            {
+                FirstName = "Edsgar",
+                Surname = "Dijkstra",
+                PhotoPath = "/Photo/Dijkstra.jpg",
+            },
+            new()
+            {
+                FirstName = "Marvin",
+                Surname = "Minsky",
+                PhotoPath = "/Photo/Minsky.jpg",
+            },
         };
 
-        foreach (var c in seed)
-        {
-            using var cmd = new NpgsqlCommand(
-                @"INSERT INTO celebrities (firstname, surname, photopath)
-              VALUES (@fn, @sn, @pp);",
-                connection
-            );
-            cmd.Parameters.AddWithValue("fn", c.FirstName);
-            cmd.Parameters.AddWithValue("sn", c.Surname);
-            cmd.Parameters.AddWithValue("pp", c.PhotoPath);
-            cmd.ExecuteNonQuery();
-        }
+        _ctx.Celebrities.AddRange(seed);
+        _ctx.SaveChanges();
+        _scn = 0;
     }
 }

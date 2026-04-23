@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab4/ICelebrity.lib/ICelebrity.lib.csproj": {}
+    "C:\\Users\\timof\\Documents\\Visual Studio Code\\DesingPatterns\\term2\\lab4\\ICelebrity.lib\\ICelebrity.lib.csproj": {}
   },
   "projects": {
-    "/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab4/ICelebrity.lib/ICelebrity.lib.csproj": {
+    "C:\\Users\\timof\\Documents\\Visual Studio Code\\DesingPatterns\\term2\\lab4\\ICelebrity.lib\\ICelebrity.lib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab4/ICelebrity.lib/ICelebrity.lib.csproj",
+        "projectUniqueName": "C:\\Users\\timof\\Documents\\Visual Studio Code\\DesingPatterns\\term2\\lab4\\ICelebrity.lib\\ICelebrity.lib.csproj",
         "projectName": "ICelebrity.lib",
-        "projectPath": "/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab4/ICelebrity.lib/ICelebrity.lib.csproj",
-        "packagesPath": "/Users/timofejmarusko/.nuget/packages/",
-        "outputPath": "/Users/timofejmarusko/Documents/VisualStudioCodeRepos/DesingPatterns/term2/lab4/ICelebrity.lib/obj/",
+        "projectPath": "C:\\Users\\timof\\Documents\\Visual Studio Code\\DesingPatterns\\term2\\lab4\\ICelebrity.lib\\ICelebrity.lib.csproj",
+        "packagesPath": "C:\\Users\\timof\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\timof\\Documents\\Visual Studio Code\\DesingPatterns\\term2\\lab4\\ICelebrity.lib\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/timofejmarusko/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\timof\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -37,7 +43,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -58,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.414/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

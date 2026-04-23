@@ -1,17 +1,18 @@
 version: "3.9"
+name: design_patterns
 
 services:
     postgres:
-        image: postgres:latest # фиксируем версию — не latest
-        container_name: lab4-postgres
+        image: ${POSTGRES_IMAGE}
+        container_name: ${POSTGRES_CONTAINER_NAME}
         environment:
-            POSTGRES_DB: postgres
-            POSTGRES_USER: postgres
-            POSTGRES_PASSWORD: "111"
+            POSTGRES_DB: ${DB_NAME}
+            POSTGRES_USER: ${DB_USER}
+            POSTGRES_PASSWORD: ${DB_PASS}
         ports:
-            - "5432:5432"
+            - "${DB_PORT}:5432"
         volumes:
-            - design_patterns_lab4:/var/lib/postgresql
-
+            - ${POSTGRES_VOLUME}:/var/lib/postgresql
 volumes:
-    design_patterns_lab4:
+    dp_lab4:
+        name: ${POSTGRES_VOLUME}

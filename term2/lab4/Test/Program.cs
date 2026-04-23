@@ -6,10 +6,9 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        // строка подключения к твоему контейнеру postgres
         string conn = "Host=localhost;Port=5432;Database=postgres;Username=postgres;Password=111";
 
-        using (ICelebrity<Celebrity> repo = DbRepository.Create(conn))
+        using (ICelebrity<Celebrity> repo = EfDbRepository.Create(conn))
         {
             Console.WriteLine("-------------- GetAll ----------------------");
             List<Celebrity> celebrities = repo.GetAll();
@@ -71,7 +70,7 @@ internal class Program
             Console.WriteLine("SaveChanges = {0}", repo.SaveChanges());
         }
 
-        using (ICelebrity<Celebrity> repo = DbRepository.Create(conn))
+        using (ICelebrity<Celebrity> repo = EfDbRepository.Create(conn))
         {
             List<Celebrity> celebrities = repo.GetAll();
             celebrities.ForEach(c =>

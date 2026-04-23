@@ -2,7 +2,23 @@
 
 namespace ICelebrity.lib;
 
-public record Celebrity(int Id, string FirstName, string Surname, string PhotoPath);
+public class Celebrity
+{
+    public int Id { get; set; }
+    public string? FirstName { get; set; }
+    public string? Surname { get; set; }
+    public string? PhotoPath { get; set; }
+
+    public Celebrity() { }
+
+    public Celebrity(int id, string firstName, string surname, string photoPath)
+    {
+        Id = id;
+        FirstName = firstName;
+        Surname = surname;
+        PhotoPath = photoPath;
+    }
+}
 
 public interface ICelebrity<T> : IDisposable
 {
